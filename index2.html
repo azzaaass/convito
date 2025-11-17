@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convito - The Art of Omakase Fine Dining</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap');
+        
+        * {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+        }
+        
+        .font-serif {
+            font-family: 'Cormorant Garamond', serif;
+        }
+        
+        .parallax {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .menu-item {
+            transition: all 0.5s ease;
+        }
+        
+        .menu-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+        
+        .gold-text {
+            background: linear-gradient(135deg, #c9a961 0%, #f4e4bc 50%, #c9a961 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero-overlay {
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.7) 100%);
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .float-animation {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        .scroll-indicator {
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+    </style>
+</head>
+<body class="bg-black text-white">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 bg-black/80 backdrop-blur-md transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-serif gold-text font-bold">CONVITO</div>
+            <div class="hidden md:flex space-x-8 text-sm tracking-wider">
+                <a href="#home" class="hover:text-yellow-500 transition">HOME</a>
+                <a href="#about" class="hover:text-yellow-500 transition">ABOUT</a>
+                <a href="#menu" class="hover:text-yellow-500 transition">MENU</a>
+                <a href="#reservation" class="hover:text-yellow-500 transition">RESERVATION</a>
+            </div>
+            <button class="md:hidden text-2xl">☰</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative h-screen flex items-center justify-center parallax" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1920');">
+        <div class="hero-overlay absolute inset-0"></div>
+        <div class="relative z-10 text-center px-4 animate__animated animate__fadeIn">
+            <div class="mb-6 float-animation">
+                <svg class="w-16 h-16 mx-auto text-yellow-600" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
+                </svg>
+            </div>
+            <h1 class="text-6xl md:text-8xl font-serif font-bold mb-4 gold-text">Convito</h1>
+            <p class="text-xl md:text-3xl font-serif mb-2 tracking-widest">Savor</p>
+            <p class="text-2xl md:text-4xl font-serif mb-8">THE ART OF OMAKASE</p>
+            <p class="text-2xl md:text-4xl font-serif mb-8">FINE DINING</p>
+            <div class="space-y-2 text-lg">
+                <p>4-6 DECEMBER 2025</p>
+                <p>AT CB RESTAURANT, CIPUTRA UNIVERSITY SURABAYA</p>
+            </div>
+            <div class="mt-12">
+                <div class="inline-block border-2 border-yellow-600 rounded-full px-8 py-3 mb-8">
+                    <p class="text-sm tracking-wider">EARLY BIRD</p>
+                    <p class="text-3xl font-serif gold-text font-bold">IDR 325<span class="text-base">/PERSON</span></p>
+                </div>
+                <div class="inline-block border-2 border-yellow-600 rounded-full px-8 py-3 ml-4">
+                    <p class="text-sm tracking-wider">NORMAL PRICE</p>
+                    <p class="text-3xl font-serif gold-text font-bold">IDR 375<span class="text-base">/PERSON</span></p>
+                </div>
+            </div>
+            <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 scroll-indicator">
+                <p class="text-sm tracking-widest mb-2">SCROLL TO DISCOVER</p>
+                <div class="w-6 h-10 border-2 border-yellow-600 rounded-full mx-auto flex justify-center">
+                    <div class="w-1 h-3 bg-yellow-600 rounded-full mt-2"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-zinc-900">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center fade-in">
+                <h2 class="text-5xl md:text-6xl font-serif mb-8 gold-text">Where History is Served</h2>
+                <div class="w-24 h-1 bg-yellow-600 mx-auto mb-8"></div>
+                <p class="text-lg md:text-xl leading-relaxed mb-6">
+                    Convito brings the flavors of Renaissance France and Italy to life, inspired by the legendary culinary masters Bartolomeo Scappi and Marie-Antoine Carême.
+                </p>
+                <p class="text-lg md:text-xl leading-relaxed text-gray-300">
+                    Convito is more than a meal – it's a journey through time where every dish tells a story, and every flavor recreates the artistry of centuries past. Experience the elegance of Renaissance dining reimagined for the modern palate.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ambience Section -->
+    <section class="py-20 bg-black">
+        <div class="container mx-auto px-6">
+            <h2 class="text-5xl md:text-6xl font-serif text-center mb-4 gold-text fade-in">AMBIENCE</h2>
+            <p class="text-center text-xl mb-12 text-gray-400 fade-in">The elegance of Renaissance dining</p>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="overflow-hidden rounded-lg fade-in">
+                    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800" alt="Fine Dining Ambience" class="w-full h-96 object-cover hover:scale-110 transition duration-700">
+                </div>
+                <div class="overflow-hidden rounded-lg fade-in">
+                    <img src="https://images.unsplash.com/photo-1578474846511-04ba529f0b88?w=800" alt="Restaurant Interior" class="w-full h-96 object-cover hover:scale-110 transition duration-700">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="py-20 bg-zinc-900">
+        <div class="container mx-auto px-6">
+            <h2 class="text-5xl md:text-6xl font-serif text-center mb-4 gold-text fade-in">THE FOOD</h2>
+            <p class="text-center text-xl mb-16 text-gray-400 fade-in">An 8-course culinary journey</p>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+                <!-- Menu Item 1 -->
+                <div class="menu-item bg-black rounded-lg overflow-hidden fade-in">
+                    <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400" alt="Boccone di Pollo" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-serif mb-2 gold-text">Boccone di Pollo</h3>
+                        <p class="text-sm text-gray-400 mb-3">Chicken salad, pasta crackers, and shallot pickle</p>
+                        <div class="flex flex-wrap gap-2 text-xs">
+                            <span class="bg-yellow-900/30 px-2 py-1 rounded">Gluten</span>
+                            <span class="bg-yellow-900/30 px-2 py-1 rounded">Egg</span>
+                            <span class="bg-yellow-900/30 px-2 py-1 rounded">Dairy</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Menu Item 2 -->
+                <div class="menu-item bg-black rounded-lg overflow-hidden fade-in">
+                    <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400" alt="Pane del Convito" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-serif mb-2 gold-text">Pane del Convito</h3>
+                        <p class="text-sm text-gray-400 mb-3">Tomato focaccia with olive oil and balsamic</p>
+                        <div class="flex flex-wrap gap-2 text-xs">
+                            <span class="bg-yellow-900/30 px-2 py-1 rounded">Gluten</span>
+                            <span class="bg-yellow-900/30 px-2 py-1 rounded">Dairy</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Menu Item 3 -->
+                <div class="menu-item bg-black rounded-lg overflow-hidden fade-in">
+                    <img src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=400" alt="Cappelletti" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-serif mb-2 gold-text">Cappelletti alla Salsa Blanca</h3>
+                        <p class="text-sm text-gray-400 mb-3">Spinach cappelletti, salsa blanca sauce, pea purée, basil oil</p>
+                        <div class="flex flex-wrap gap-2 text-xs">
+                            <span class="bg-yellow-900/30 px-2 py-1 rounded">Gluten</span>
+                            <span class="bg-yellow-900/30 px-2 py-1 rounded">Egg</span>
+                            <span class="bg-yellow-900/30 px-2 py-1 rounded">Dairy</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Menu Item 4 -->
+                <div class="menu-item bg-black rounded-lg overflow-hidden fade-in">
+                    <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400" alt="Art du Jardin" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-serif mb-2 gold-text">Art du Jardin</h3>
+                        <p class="text-sm text-gray-400 mb-3">Niçoise salad with chicken terrine</p>
+                        <div class="flex flex-wrap gap-2 text-xs">
+                            <span class="bg-yellow-900/30 px-2 py-1 rounded">Dairy</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Menu Item 5 -->
+                <div class="menu-item bg-black rounded-lg overflow-hidden fade-in">
+                    <img src="https://images.unsplash.com/photo-1559847844-5315695dadae?w=400" alt="Bateau de Peache" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-serif mb-2 gold-text">Bateau de Peache</h3>
+                        <p class="text-sm text-gray-400 mb-3">Seafood chowder</p>
+                        <div class="flex flex-wrap gap-2 text-xs">
+                            <span class="bg-yellow-900/30 px-2 py-1 rounded">Gluten</span>
+                            <span class="bg-yellow-900/30 px-2 py-1 rounded">Dairy</span>
+                            <span class="bg-yellow-900/30 px-2 py-1 rounded">Seafood</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Menu Item 6 -->
+                <div class="menu-item bg-black rounded-lg overflow-hidden fade-in">
+                    <img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=400" alt="Au Fond de la Mer" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-serif mb-2 gold-text">Au Fond de la Mer</h3>
+                        <p class="text-sm text-gray-400 mb-3">Fish ballotine, cauliflower purée, fumet sauce, crispy skin, parsley oil, tomato tartare</p>
+                        <div class="flex flex-wrap gap-2 text-xs">
+                            <span class="bg-yellow-900/30 px-2 py-1 rounded">Gluten</span>
+                            <span class="bg-yellow-900/30 px-2 py-1 rounded">Dairy</span>
+                            <span class="bg-yellow-900/30 px-2 py-1 rounded">Seafood</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Menu Item 7 -->
+                <div class="menu-item bg-black rounded-lg overflow-hidden fade-in">
+                    <img src="https://images.unsplash.com/photo-1558030006-450675393462?w=400" alt="Filet Mignon" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-serif mb-2 gold-text">Filet Mignon</h3>
+                        <p class="text-sm text-gray-400 mb-3">Tenderloin steak, beef jus, radish pickle, pomme pavé, smoked pineapple gel</p>
+                        <div class="flex flex-wrap gap-2 text-xs">
+                            <span class="bg-yellow-900/30 px-2 py-1 rounded">Gluten</span>
+                            <span class="bg-yellow-900/30 px-2 py-1 rounded">Dairy</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Menu Item 8 -->
+                <div class="menu-item bg-black rounded-lg overflow-hidden fade-in">
+                    <img src="https://images.unsplash.com/photo-1519915212116-715fb0215e6f?w=400" alt="Éclat de Citron" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-serif mb-2 gold-text">Éclat de Citron</h3>
+                        <p class="text-sm text-gray-400 mb-3">Tart au citron, coconut sorbet, mango-passion mousse</p>
+                        <div class="flex flex-wrap gap-2 text-xs">
+                            <span class="bg-yellow-900/30 px-2 py-1 rounded">Gluten</span>
+                            <span class="bg-yellow-900/30 px-2 py-1 rounded">Dairy</span>
+                            <span class="bg-yellow-900/30 px-2 py-1 rounded">Egg</span>
+                            <span class="bg-yellow-900/30 px-2 py-1 rounded">Nuts</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reservation Section -->
+    <section id="reservation" class="py-20 bg-black">
+        <div class="container mx-auto px-6">
+            <div class="max-w-3xl mx-auto text-center fade-in">
+                <h2 class="text-5xl md:text-6xl font-serif mb-8 gold-text">RESERVE YOUR TABLE</h2>
+                <div class="w-24 h-1 bg-yellow-600 mx-auto mb-12"></div>
+                
+                <div class="bg-zinc-900 rounded-lg p-8 mb-8">
+                    <div class="grid md:grid-cols-2 gap-8 text-left">
+                        <div>
+                            <h3 class="text-xl font-serif gold-text mb-4">DATE & TIME</h3>
+                            <p class="text-gray-300 mb-2">4 - 6 December 2025</p>
+                            <p class="text-gray-300">Session 1: 14.00 - 16.00</p>
+                            <p class="text-gray-300">Session 2: 19.00 - 21.00</p>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-serif gold-text mb-4">LOCATION</h3>
+                            <p class="text-gray-300">CB Restaurant</p>
+                            <p class="text-gray-300">Universitas Ciputra Surabaya</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-zinc-900 rounded-lg p-8 mb-8">
+                    <h3 class="text-2xl font-serif gold-text mb-6">CONTACT PERSON</h3>
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-center space-x-3">
+                            <svg class="w-6 h-6 text-yellow-600" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                            </svg>
+                            <p class="text-lg">JACQUELINE: 0895-0173-4600</p>
+                        </div>
+                        <div class="flex items-center justify-center space-x-3">
+                            <svg class="w-6 h-6 text-yellow-600" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                            </svg>
+                            <p class="text-lg">SHARON: 0822-9981-2705</p>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="bg-yellow-600 hover:bg-yellow-700 text-black font-semibold px-12 py-4 rounded-full text-lg transition transform hover:scale-105">
+                    RESERVATION COMING SOON
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-zinc-900 py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p class="text-3xl font-serif gold-text mb-2">CONVITO</p>
+            <p class="text-gray-400 text-sm">Where history is served</p>
+            <p class="text-gray-500 text-xs mt-4">© 2025 Convito. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Fade-in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Navbar background on scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 100) {
+                navbar.classList.add('bg-black/95');
+            } else {
+                navbar.classList.remove('bg-black/95');
+            }
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
