@@ -275,14 +275,55 @@
             >RESERVATION</a
           >
         </div>
-        <button class="md:hidden text-2xl gold-text">☰</button>
+        <button id="menu-btn" class="md:hidden text-2xl gold-text">☰</button>
+
+        <!-- Mobile Menu (Vertical Premium Style) -->
+        <div
+          id="mobile-menu"
+          class="hidden md:hidden flex flex-col items-center bg-[#1a1612]/95 backdrop-blur-md py-6 absolute top-full left-0 w-full border-b border-[#c9a961]/20 z-40 space-y-4"
+        >
+          <a
+            href="#home"
+            class="text-base tracking-widest font-light text-[#c9a961] hover:text-[#f4e4bc] transition"
+          >
+            HOME
+          </a>
+
+          <div class="w-16 h-px bg-[#c9a961]/20"></div>
+
+          <a
+            href="#about"
+            class="text-base tracking-widest font-light text-[#c9a961] hover:text-[#f4e4bc] transition"
+          >
+            ABOUT
+          </a>
+
+          <div class="w-16 h-px bg-[#c9a961]/20"></div>
+
+          <a
+            href="#menu"
+            class="text-base tracking-widest font-light text-[#c9a961] hover:text-[#f4e4bc] transition"
+          >
+            MENU
+          </a>
+
+          <div class="w-16 h-px bg-[#c9a961]/20"></div>
+
+          <a
+            href="#reservation"
+            class="text-base tracking-widest font-light text-[#c9a961] hover:text-[#f4e4bc] transition"
+          >
+            RESERVATION
+          </a>
+        </div>
       </div>
     </nav>
 
     <!-- Hero Section -->
+    <!-- Hero Section -->
     <section
       id="home"
-      class="relative h-screen flex items-center justify-center parallax"
+      class="relative min-h-screen flex items-center justify-center parallax bg-cover bg-center"
       style="
         background-image: linear-gradient(
             rgba(26, 22, 18, 0.6),
@@ -292,12 +333,14 @@
       "
     >
       <div class="hero-overlay absolute inset-0"></div>
+
       <div
-        class="relative z-10 text-center px-4 animate__animated animate__fadeIn"
+        class="relative z-10 text-center px-4 animate__animated animate__fadeIn max-w-[90%] mx-auto"
       >
-        <div class="mb-8 float-animation">
+        <!-- Ornament -->
+        <div class="mb-6 md:mb-8 float-animation">
           <svg
-            class="ornament gold-text"
+            class="ornament gold-text w-14 h-14 md:w-20 md:h-20 mx-auto"
             viewBox="0 0 100 100"
             fill="currentColor"
           >
@@ -310,58 +353,84 @@
             />
           </svg>
         </div>
+
+        <!-- Title -->
         <h1
-          class="text-5xl md:text-7xl font-title mb-6 tracking-wider gold-text"
+          class="text-4xl sm:text-5xl md:text-7xl font-title mb-4 tracking-wider gold-text"
         >
           CONVITO
         </h1>
-        <div class="divider"></div>
-        <p class="text-4xl md:text-6xl font-display italic mb-3 text-[#d4b98a]">
+
+        <div class="divider mx-auto mb-4 md:mb-6"></div>
+
+        <!-- Subtitle -->
+        <p
+          class="text-3xl sm:text-4xl md:text-6xl font-display italic mb-2 text-[#d4b98a]"
+        >
           Savor
         </p>
-        <h2 class="text-2xl md:text-4xl font-title mb-2 tracking-widest">
+
+        <h2
+          class="text-xl sm:text-2xl md:text-4xl font-title mb-1 tracking-widest"
+        >
           THE ART OF
         </h2>
-        <h2 class="text-2xl md:text-4xl font-title mb-2 tracking-widest">
+        <h2
+          class="text-xl sm:text-2xl md:text-4xl font-title mb-1 tracking-widest"
+        >
           OMAKASE
         </h2>
-        <h2 class="text-2xl md:text-4xl font-title mb-10 tracking-widest">
+        <h2
+          class="text-xl sm:text-2xl md:text-4xl font-title mb-8 tracking-widest"
+        >
           FINE DINING
         </h2>
-        <div class="divider mb-8"></div>
-        <div class="space-y-1 text-base tracking-widest font-light mb-10">
+
+        <div class="divider mx-auto mb-6"></div>
+
+        <!-- Event Info -->
+        <div
+          class="space-y-1 text-sm sm:text-base tracking-widest font-light mb-8"
+        >
           <p class="text-[#c9a961]">4-6 DECEMBER 2025</p>
-          <p class="text-[#a8906f] text-sm">
-            CULINARY BUSINESS RESTAURANT, 1ST FLOOR
-          </p>
-          <p class="text-[#a8906f] text-sm">
+          <p class="text-[#a8906f]">CULINARY BUSINESS RESTAURANT, 1ST FLOOR</p>
+          <p class="text-[#a8906f]">
             UC MAIN BUILDING, UNIVERSITAS CIPUTRA SURABAYA
           </p>
         </div>
+
+        <!-- Price Badges -->
         <div
-          class="flex flex-col md:flex-row items-center justify-center gap-6 mt-12"
+          class="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 mt-10"
         >
-          <div class="price-badge rounded-full px-10 py-6 text-center">
-            <p class="text-xs tracking-widest mb-2 text-[#a8906f]">
+          <div
+            class="price-badge rounded-full px-8 py-5 sm:px-10 sm:py-6 text-center w-full sm:w-auto"
+          >
+            <p
+              class="text-[10px] sm:text-xs tracking-widest mb-1 text-[#a8906f]"
+            >
               EARLY BIRD
             </p>
-            <p class="text-4xl font-title gold-text">IDR 325</p>
-            <p class="text-xs tracking-wider text-[#8a7860]">/PAX</p>
+            <p class="text-3xl sm:text-4xl font-title gold-text">IDR 325</p>
+            <p class="text-[10px] sm:text-xs tracking-wider text-[#8a7860]">
+              /PAX
+            </p>
           </div>
-          <div class="price-badge rounded-full px-10 py-6 text-center">
-            <p class="text-xs tracking-widest mb-2 text-[#a8906f]">
+
+          <div
+            class="price-badge rounded-full px-8 py-5 sm:px-10 sm:py-6 text-center w-full sm:w-auto"
+          >
+            <p
+              class="text-[10px] sm:text-xs tracking-widest mb-1 text-[#a8906f]"
+            >
               NORMAL PRICE
             </p>
-            <p class="text-4xl font-title gold-text">IDR 375</p>
-            <p class="text-xs tracking-wider text-[#8a7860]">/PAX</p>
+            <p class="text-3xl sm:text-4xl font-title gold-text">IDR 375</p>
+            <p class="text-[10px] sm:text-xs tracking-wider text-[#8a7860]">
+              /PAX
+            </p>
           </div>
         </div>
-        <!-- <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 scroll-indicator">
-                <p class="text-xs tracking-widest mb-3 gold-text font-light">SCROLL TO DISCOVER</p>
-                <div class="w-5 h-9 border border-[#c9a961] rounded-full mx-auto flex justify-center">
-                    <div class="w-0.5 h-2 bg-[#c9a961] rounded-full mt-2"></div>
-                </div>
-            </div> -->
       </div>
     </section>
 
@@ -509,7 +578,7 @@
                 Cappelletti alla Salsa Blanca
               </h3>
               <p class="text-sm text-[#8a7860] mb-4 font-light leading-relaxed">
-                Spinach cappelletti, salsa blanca sauce, pea purée, basil oil
+                Spinach cappelletti, salsa blanca sauce, pea purée
               </p>
               <div class="flex flex-wrap gap-2 text-xs">
                 <span
@@ -610,7 +679,8 @@
             <div class="p-5">
               <h3 class="text-xl font-display mb-2 gold-text">Filet Mignon</h3>
               <p class="text-sm text-[#8a7860] mb-4 font-light leading-relaxed">
-                Tenderloin steak, beef jus, beetroot pickle, pomme pavé, smoked pineapple gel
+                Tenderloin steak, beef jus, beetroot pickle, pomme pavé, smoked
+                pineapple gel
               </p>
               <div class="flex flex-wrap gap-2 text-xs">
                 <span
@@ -738,7 +808,9 @@
             </div>
           </div>
 
-          <a href="https://forms.gle/7FAcJfCQZV6krRP28" target="_blank"
+          <a
+            href="https://forms.gle/7FAcJfCQZV6krRP28"
+            target="_blank"
             class="bg-[#c9a961] hover:bg-[#d4b98a] text-[#1a1612] font-semibold px-12 py-4 rounded-full text-base tracking-wider transition transform hover:scale-105 font-title fade-in stagger-3"
           >
             RESERVATION NOW
@@ -748,22 +820,111 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-[#1a1612] border-t border-[#c9a961]/20 py-10">
-      <div class="container mx-auto px-6 flex flex-col items-center">
-        <img src="/images/Convito simbol emas.png" class="w-28" alt="logo">
-        <p class="text-3xl font-title gold-text mb-3 tracking-widest">
+    <footer class="bg-[#1a1612] border-t border-[#c9a961]/20 py-12">
+      <div
+        class="container mx-auto px-6 flex flex-col items-center text-center"
+      >
+        <!-- Logo -->
+        <img
+          src="/images/Convito simbol emas.png"
+          class="w-28 mb-4"
+          alt="logo"
+        />
+
+        <!-- Title -->
+        <p class="text-3xl font-title gold-text tracking-widest mb-2">
           CONVITO
         </p>
-        <p class="text-[#a8906f] text-sm font-light italic">
+
+        <!-- Tagline -->
+        <p class="text-[#a8906f] text-sm font-light italic mb-6">
           Where history is served
         </p>
-        <p class="text-[#6b5d4f] text-xs mt-6 font-light">
+
+        <!-- Social Media -->
+        <div class="flex items-center space-x-8 mb-6">
+          <!-- Instagram -->
+          <a
+            href="https://instagram.com/YOUR_INSTAGRAM"
+            target="_blank"
+            class="hover:scale-110 transition transform"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="w-7 h-7 text-[#c9a961]"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M7 2C4.243 2 2 4.243 2 7v10c0 
+                   2.757 2.243 5 5 5h10c2.757 0 5-2.243 
+                   5-5V7c0-2.757-2.243-5-5-5H7zm10 
+                   2c1.654 0 3 1.346 3 3v10c0 
+                   1.654-1.346 3-3 3H7c-1.654 0-3-1.346-3-3V7c0-1.654 
+                   1.346-3 3-3h10zm-5 3a5 5 0 
+                   100 10 5 5 0 000-10zm6.5-.25a1.25 1.25 
+                   0 11-2.5 0 1.25 1.25 0 012.5 0z"
+              />
+            </svg>
+          </a>
+
+          <!-- WhatsApp -->
+          <a
+            href="https://wa.me/YOUR_WHATSAPP"
+            target="_blank"
+            class="hover:scale-110 transition transform"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="w-7 h-7 text-[#c9a961]"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M12.004 2C6.486 2 2 6.486 
+                   2 12.003c0 2.088.576 4.108 1.668 
+                   5.879L2 22l4.22-1.624A9.934 9.934 
+                   0 0012.004 22C17.522 22 22 
+                   17.514 22 12.003 22 6.486 17.522 
+                   2 12.004 2zm0 18.32a8.27 8.27 0 
+                   01-4.215-1.176l-.302-.181-2.503.963.958-2.44-.197-.315A8.273 
+                   8.273 0 013.68 12c0-4.596 
+                   3.729-8.32 8.324-8.32 4.598 
+                   0 8.323 3.724 8.323 8.32 0 
+                   4.595-3.725 8.32-8.323 8.32zm4.615-5.94c-.25-.125-1.474-.73-1.703-.813-.229-.083-.396-.125-.563.125-.166.25-.645.813-.792.979-.146.167-.292.188-.542.063-.25-.125-1.057-.39-2.013-1.243-.744-.663-1.247-1.48-1.393-1.73-.146-.25-.015-.385.11-.51.114-.113.25-.292.375-.438.125-.146.166-.25.25-.417.083-.167.042-.313-.021-.438-.063-.125-.563-1.354-.771-1.854-.203-.49-.406-.427-.563-.438l-.48-.01c-.167 
+                   0-.438.063-.667.312-.229.25-.875.854-.875 
+                   2.083s.896 2.417 1.021 2.583c.125.167 
+                   1.76 2.688 4.265 3.77.596.257 1.06.41 
+                   1.422.524.597.19 1.14.163 1.572.099.48-.072 
+                   1.474-.604 1.683-1.188.208-.583.208-1.083.146-1.188-.062-.104-.229-.167-.479-.292z"
+              />
+            </svg>
+          </a>
+        </div>
+
+        <!-- Copyright -->
+        <p class="text-[#6b5d4f] text-xs font-light">
           © 2025 Convito. All rights reserved.
         </p>
       </div>
     </footer>
 
     <script>
+      // HAMBURGER MENU
+      const menuBtn = document.getElementById("menu-btn");
+      const mobileMenu = document.getElementById("mobile-menu");
+
+      menuBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+
+      // Auto close menu after clicking a link
+      document.querySelectorAll("#mobile-menu a").forEach((link) => {
+        link.addEventListener("click", () => {
+          mobileMenu.classList.add("hidden");
+        });
+      });
+
       // Custom Cursor Effect
       const cursorDot = document.querySelector(".cursor-dot");
       const cursorOutline = document.querySelector(".cursor-outline");
